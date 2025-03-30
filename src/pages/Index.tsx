@@ -5,6 +5,7 @@ import { useAuth } from "@/context/AuthContext";
 import LoginForm from "@/components/LoginForm";
 import RegisterForm from "@/components/RegisterForm";
 import { Plane } from "lucide-react";
+import { Button } from "@/components/ui/button";
 
 const Index = () => {
   const [showRegister, setShowRegister] = useState(false);
@@ -20,6 +21,10 @@ const Index = () => {
 
   const toggleForm = () => {
     setShowRegister(!showRegister);
+  };
+
+  const goToAdmin = () => {
+    navigate("/admin");
   };
 
   return (
@@ -43,6 +48,12 @@ const Index = () => {
             <span className="bg-white rounded-full px-4 py-1 text-sm shadow-sm">Location-Based Insights</span>
             <span className="bg-white rounded-full px-4 py-1 text-sm shadow-sm">Travel Community</span>
             <span className="bg-white rounded-full px-4 py-1 text-sm shadow-sm">Interactive Maps</span>
+          </div>
+          
+          <div className="pt-4">
+            <Button variant="outline" onClick={goToAdmin}>
+              Admin Dashboard
+            </Button>
           </div>
         </div>
       

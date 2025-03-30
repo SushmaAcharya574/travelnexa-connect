@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import TabView from "@/components/TabView";
 import { Button } from "@/components/ui/button";
-import { LogOut, Radio, Search, User } from "lucide-react";
+import { LogOut, Radio, Search, User, Settings } from "lucide-react";
 import TravelQuestionnaire from "@/components/TravelQuestionnaire";
 import TravelSearch from "@/components/TravelSearch";
 
@@ -21,6 +21,9 @@ export default function Dashboard() {
   if (!user) {
     return null;
   }
+
+  // Check if user is admin (username contains 'admin')
+  const isAdmin = user.username.toLowerCase().includes('admin');
 
   const tabs = [
     {
@@ -39,6 +42,10 @@ export default function Dashboard() {
     },
   ];
 
+  const goToAdmin = () => {
+    navigate("/admin");
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
       <header className="bg-white shadow">
@@ -51,6 +58,12 @@ export default function Dashboard() {
               <p className="text-sm font-medium">{user.firstName} {user.lastName}</p>
               <p className="text-xs text-muted-foreground">{user.email}</p>
             </div>
+            {isAdmin && (
+              <Button variant="outline" size="sm" onClick={goToAdmin}>
+                <Settings className="h-4 w-4 mr-2" />
+                Admin
+              </Button>
+            )}
             <Button variant="outline" size="sm" onClick={logout}>
               <LogOut className="h-4 w-4 mr-2" />
               Logout
