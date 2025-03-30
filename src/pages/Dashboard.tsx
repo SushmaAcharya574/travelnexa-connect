@@ -4,7 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { useAuth } from "@/context/AuthContext";
 import TabView from "@/components/TabView";
 import { Button } from "@/components/ui/button";
-import { LogOut, MapPin, User } from "lucide-react";
+import { LogOut, Radio, Search, User } from "lucide-react";
+import TravelQuestionnaire from "@/components/TravelQuestionnaire";
+import TravelSearch from "@/components/TravelSearch";
 
 export default function Dashboard() {
   const { user, isAuthenticated, logout } = useAuth();
@@ -22,26 +24,18 @@ export default function Dashboard() {
 
   const tabs = [
     {
-      id: "tab1",
-      title: "Tab 1",
-      icon: <User className="h-4 w-4" />,
-      content: (
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Welcome to Tab 1</h2>
-          <p>This is the content of the first tab. You can modify this as needed based on your requirements.</p>
-        </div>
-      ),
+      id: "questionnaire",
+      title: "Travel Recommendations",
+      icon: <Radio className="h-4 w-4" />,
+      description: "Get personalized travel recommendations based on your preferences",
+      content: <TravelQuestionnaire />,
     },
     {
-      id: "tab2",
-      title: "Tab 2",
-      icon: <MapPin className="h-4 w-4" />,
-      content: (
-        <div className="space-y-4">
-          <h2 className="text-xl font-semibold">Welcome to Tab 2</h2>
-          <p>This is the content of the second tab. You can modify this as needed based on your requirements.</p>
-        </div>
-      ),
+      id: "search",
+      title: "Manual Search",
+      icon: <Search className="h-4 w-4" />,
+      description: "Search for specific travel destinations by location or name",
+      content: <TravelSearch />,
     },
   ];
 
