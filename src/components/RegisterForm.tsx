@@ -56,9 +56,15 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
     setIsSubmitting(true);
     try {
       const { confirmPassword, ...userData } = values;
+      
+      // Ensure all required properties are passed with non-optional types
       await register({
-        ...userData,
-        location,
+        firstName: userData.firstName,
+        lastName: userData.lastName,
+        username: userData.username,
+        email: userData.email,
+        password: userData.password,
+        location: location,
       });
     } finally {
       setIsSubmitting(false);
