@@ -22,7 +22,7 @@ interface TravelResult {
   description: string;
   image: string;
   location: {
-    country: string;
+    state: string;
     city: string;
     coordinates: {
       latitude: number;
@@ -31,91 +31,91 @@ interface TravelResult {
   };
 }
 
-// Sample questions for the questionnaire
+// Sample questions for the India-focused questionnaire
 const questionnaire: Question[] = [
   {
     id: "q1",
-    text: "What type of travel experience are you looking for?",
+    text: "What type of Indian travel experience are you looking for?",
     options: [
-      { id: "q1-1", text: "Beach and relaxation", value: "beach" },
-      { id: "q1-2", text: "Cultural and historical", value: "cultural" },
-      { id: "q1-3", text: "Adventure and outdoor activities", value: "adventure" },
-      { id: "q1-4", text: "Food and culinary experiences", value: "food" },
+      { id: "q1-1", text: "Historical monuments and heritage", value: "heritage" },
+      { id: "q1-2", text: "Spiritual and religious sites", value: "spiritual" },
+      { id: "q1-3", text: "Nature and wildlife", value: "nature" },
+      { id: "q1-4", text: "Food and cultural experiences", value: "culture" },
     ],
   },
   {
     id: "q2",
-    text: "What is your preferred climate?",
+    text: "Which region of India interests you most?",
     options: [
-      { id: "q2-1", text: "Warm and tropical", value: "tropical" },
-      { id: "q2-2", text: "Mild and temperate", value: "temperate" },
-      { id: "q2-3", text: "Cool and mountainous", value: "mountainous" },
-      { id: "q2-4", text: "I don't have a preference", value: "any" },
+      { id: "q2-1", text: "North India (Delhi, Agra, Rajasthan)", value: "north" },
+      { id: "q2-2", text: "South India (Kerala, Tamil Nadu, Karnataka)", value: "south" },
+      { id: "q2-3", text: "East India (West Bengal, Odisha, North East)", value: "east" },
+      { id: "q2-4", text: "West India (Gujarat, Maharashtra, Goa)", value: "west" },
     ],
   },
   {
     id: "q3",
-    text: "How long do you plan to travel?",
+    text: "How long do you plan to travel in India?",
     options: [
-      { id: "q3-1", text: "Short weekend trip (1-3 days)", value: "short" },
-      { id: "q3-2", text: "Medium length (4-7 days)", value: "medium" },
-      { id: "q3-3", text: "Extended vacation (1-2 weeks)", value: "extended" },
-      { id: "q3-4", text: "Long-term travel (more than 2 weeks)", value: "long" },
+      { id: "q3-1", text: "Short trip (1-5 days)", value: "short" },
+      { id: "q3-2", text: "Medium length (6-10 days)", value: "medium" },
+      { id: "q3-3", text: "Extended vacation (11-15 days)", value: "extended" },
+      { id: "q3-4", text: "Long-term travel (more than 15 days)", value: "long" },
     ],
   },
   {
     id: "q4",
-    text: "What is your budget range?",
+    text: "What is your preferred travel season for India?",
     options: [
-      { id: "q4-1", text: "Budget-friendly", value: "budget" },
-      { id: "q4-2", text: "Moderate", value: "moderate" },
-      { id: "q4-3", text: "Luxury", value: "luxury" },
-      { id: "q4-4", text: "No specific budget", value: "any" },
+      { id: "q4-1", text: "Winter (October-February)", value: "winter" },
+      { id: "q4-2", text: "Spring (March-April)", value: "spring" },
+      { id: "q4-3", text: "Summer (May-June)", value: "summer" },
+      { id: "q4-4", text: "Monsoon (July-September)", value: "monsoon" },
     ],
   },
 ];
 
-// Sample travel results for recommendation
+// Sample travel results for Indian destinations
 const sampleResults: TravelResult[] = [
   {
     id: "place1",
-    name: "Bali, Indonesia",
-    description: "Known for its tropical beaches, vibrant rice paddies, unique culture, and spiritual temples. Bali offers both relaxation and adventure across its diverse landscape.",
-    image: "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=800&h=500",
+    name: "Varanasi",
+    description: "One of the world's oldest continuously inhabited cities and a major spiritual center for Hinduism. Experience ancient temples, sacred Ganges River rituals, and vibrant cultural traditions.",
+    image: "https://images.unsplash.com/photo-1626015279986-c1aebd3d0fc7?auto=format&fit=crop&w=800&h=500",
     location: {
-      country: "Indonesia",
-      city: "Bali",
+      state: "Uttar Pradesh",
+      city: "Varanasi",
       coordinates: {
-        latitude: -8.3405,
-        longitude: 115.0920,
+        latitude: 25.3176,
+        longitude: 82.9739,
       },
     },
   },
   {
     id: "place2",
-    name: "Barcelona, Spain",
-    description: "A vibrant city known for its architectural marvels designed by Antoni Gaudí, delicious Mediterranean cuisine, and beautiful beaches along the coast.",
-    image: "https://images.unsplash.com/photo-1539037116277-4db20889f2d4?auto=format&fit=crop&w=800&h=500",
+    name: "Kerala Backwaters",
+    description: "A network of interconnected canals, rivers, lakes, and inlets formed by more than 900 km of waterways. Take a traditional houseboat cruise through palm-fringed waterways and experience rural Kerala's beauty.",
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&h=500",
     location: {
-      country: "Spain",
-      city: "Barcelona",
+      state: "Kerala",
+      city: "Alleppey",
       coordinates: {
-        latitude: 41.3851,
-        longitude: 2.1734,
+        latitude: 9.4981,
+        longitude: 76.3388,
       },
     },
   },
   {
     id: "place3",
-    name: "Kyoto, Japan",
-    description: "A city of cultural heritage featuring ancient temples, traditional tea houses, stunning gardens, and seasonal beauty, especially during cherry blossom season.",
-    image: "https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e?auto=format&fit=crop&w=800&h=500",
+    name: "Rann of Kutch",
+    description: "One of the largest salt deserts in the world, offering breathtaking landscapes especially during the Rann Utsav festival when the white desert is illuminated under moonlight with cultural performances.",
+    image: "https://images.unsplash.com/photo-1593096127838-3b7c7272c675?auto=format&fit=crop&w=800&h=500",
     location: {
-      country: "Japan",
-      city: "Kyoto",
+      state: "Gujarat",
+      city: "Kutch",
       coordinates: {
-        latitude: 35.0116,
-        longitude: 135.7681,
+        latitude: 23.7337,
+        longitude: 69.8597,
       },
     },
   },
@@ -241,7 +241,7 @@ const TravelQuestionnaire = () => {
       <div className="space-y-6">
         <div className="flex items-center gap-2 mb-4">
           <CheckCircle className="h-5 w-5 text-green-500" />
-          <h2 className="text-2xl font-semibold">Your Recommended Destinations</h2>
+          <h2 className="text-2xl font-semibold">Your Recommended Indian Destinations</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-6">
@@ -262,7 +262,7 @@ const TravelQuestionnaire = () => {
                 <h3 className="text-lg font-semibold mb-1">{result.name}</h3>
                 <div className="flex items-center text-muted-foreground">
                   <MapPin className="h-4 w-4 mr-1" />
-                  <span className="text-sm">{result.location.city}, {result.location.country}</span>
+                  <span className="text-sm">{result.location.city}, {result.location.state}</span>
                 </div>
               </CardContent>
             </Card>
@@ -298,7 +298,7 @@ const TravelQuestionnaire = () => {
               <h2 className="text-2xl font-bold">{selectedResult.name}</h2>
               <div className="flex items-center text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-1" />
-                <span>{selectedResult.location.city}, {selectedResult.location.country}</span>
+                <span>{selectedResult.location.city}, {selectedResult.location.state}</span>
               </div>
             </div>
             

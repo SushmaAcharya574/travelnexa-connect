@@ -6,7 +6,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Search, MapPin, List } from "lucide-react";
 
 interface SearchFormValues {
-  country: string;
+  state: string;
   city: string;
   name: string;
 }
@@ -14,7 +14,7 @@ interface SearchFormValues {
 interface TravelLocation {
   id: string;
   name: string;
-  country: string;
+  state: string;
   city: string;
   description: string;
   image: string;
@@ -24,61 +24,85 @@ interface TravelLocation {
   };
 }
 
-// Sample data for search results
+// Sample data for Indian tourist locations
 const sampleSearchResults: TravelLocation[] = [
   {
     id: "loc1",
-    name: "Eiffel Tower",
-    country: "France",
-    city: "Paris",
-    description: "The iconic iron tower built in 1889 that has become the most recognized symbol of Paris and one of the world's most famous landmarks.",
-    image: "https://images.unsplash.com/photo-1543349689-9a4d426bee8e?auto=format&fit=crop&w=800&h=500",
+    name: "Taj Mahal",
+    state: "Uttar Pradesh",
+    city: "Agra",
+    description: "The iconic white marble mausoleum built by Emperor Shah Jahan in memory of his wife Mumtaz Mahal. It's one of the Seven Wonders of the World and a UNESCO World Heritage site.",
+    image: "https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=800&h=500",
     coordinates: {
-      latitude: 48.8584,
-      longitude: 2.2945,
+      latitude: 27.1751,
+      longitude: 78.0421,
     },
   },
   {
     id: "loc2",
-    name: "Colosseum",
-    country: "Italy",
-    city: "Rome",
-    description: "An ancient Roman amphitheater built in 70-80 AD, it is the largest amphitheater ever built and a symbol of Imperial Rome.",
-    image: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?auto=format&fit=crop&w=800&h=500",
+    name: "Jaipur City Palace",
+    state: "Rajasthan",
+    city: "Jaipur",
+    description: "A magnificent blend of Rajasthani and Mughal architecture, the City Palace complex includes beautiful courtyards, gardens, and museums showcasing royal artifacts.",
+    image: "https://images.unsplash.com/photo-1599661046827-dacff0c0f09a?auto=format&fit=crop&w=800&h=500",
     coordinates: {
-      latitude: 41.8902,
-      longitude: 12.4922,
+      latitude: 26.9255,
+      longitude: 75.8236,
     },
   },
   {
     id: "loc3",
-    name: "Statue of Liberty",
-    country: "USA",
-    city: "New York",
-    description: "A colossal neoclassical sculpture on Liberty Island in New York Harbor, gifted to the United States by France in 1886.",
-    image: "https://images.unsplash.com/photo-1605130284535-11dd9eedc58a?auto=format&fit=crop&w=800&h=500",
+    name: "Golden Temple",
+    state: "Punjab",
+    city: "Amritsar",
+    description: "Harmandir Sahib, also known as the Golden Temple, is the most sacred shrine in Sikhism. The stunning gold-plated building surrounded by a sacred pool attracts visitors from all faiths.",
+    image: "https://images.unsplash.com/photo-1589308078059-be1415eab4c3?auto=format&fit=crop&w=800&h=500",
     coordinates: {
-      latitude: 40.6892,
-      longitude: -74.0445,
+      latitude: 31.6200,
+      longitude: 74.8765,
     },
   },
   {
     id: "loc4",
-    name: "Sydney Opera House",
-    country: "Australia",
-    city: "Sydney",
-    description: "A multi-venue performing arts centre featuring a distinctive sail-shaped design, it is one of the most famous buildings of the 20th century.",
-    image: "https://images.unsplash.com/photo-1528072164453-f4e8ef0d475a?auto=format&fit=crop&w=800&h=500",
+    name: "Hawa Mahal",
+    state: "Rajasthan",
+    city: "Jaipur",
+    description: "The 'Palace of Winds' is a five-story palace built in 1799 with a unique honeycomb facade with 953 small windows that allowed royal ladies to observe street festivities without being seen.",
+    image: "https://images.unsplash.com/photo-1599661046548-c8a9aca2d0a4?auto=format&fit=crop&w=800&h=500",
     coordinates: {
-      latitude: -33.8568,
-      longitude: 151.2153,
+      latitude: 26.9239,
+      longitude: 75.8267,
+    },
+  },
+  {
+    id: "loc5",
+    name: "Gateway of India",
+    state: "Maharashtra",
+    city: "Mumbai",
+    description: "An iconic arch monument built during the 20th century to commemorate the landing of King George V and Queen Mary in 1911. It overlooks the Arabian Sea and is a symbol of Mumbai.",
+    image: "https://images.unsplash.com/photo-1567003794281-e9a6a8474b58?auto=format&fit=crop&w=800&h=500",
+    coordinates: {
+      latitude: 18.9220,
+      longitude: 72.8347,
+    },
+  },
+  {
+    id: "loc6",
+    name: "Mysore Palace",
+    state: "Karnataka",
+    city: "Mysore",
+    description: "The official residence of the Wadiyar dynasty that ruled Mysore from 1399 to 1950. The current palace was built in 1912 after the old wooden structure was destroyed by fire.",
+    image: "https://images.unsplash.com/photo-1628944682084-831f35256aea?auto=format&fit=crop&w=800&h=500",
+    coordinates: {
+      latitude: 12.3052,
+      longitude: 76.6552,
     },
   },
 ];
 
 const TravelSearch = () => {
   const [searchValues, setSearchValues] = useState<SearchFormValues>({
-    country: "",
+    state: "",
     city: "",
     name: "",
   });
@@ -98,11 +122,11 @@ const TravelSearch = () => {
     // Filter the sample data based on search criteria
     // In a real application, this would be an API call
     const results = sampleSearchResults.filter((location) => {
-      const matchCountry = location.country.toLowerCase().includes(searchValues.country.toLowerCase()) || !searchValues.country;
+      const matchState = location.state.toLowerCase().includes(searchValues.state.toLowerCase()) || !searchValues.state;
       const matchCity = location.city.toLowerCase().includes(searchValues.city.toLowerCase()) || !searchValues.city;
       const matchName = location.name.toLowerCase().includes(searchValues.name.toLowerCase()) || !searchValues.name;
       
-      return matchCountry && matchCity && matchName;
+      return matchState && matchCity && matchName;
     });
     
     setSearchResults(results);
@@ -148,7 +172,7 @@ const TravelSearch = () => {
               <h2 className="text-2xl font-bold">{selectedLocation.name}</h2>
               <div className="flex items-center text-muted-foreground">
                 <MapPin className="h-4 w-4 mr-1" />
-                <span>{selectedLocation.city}, {selectedLocation.country}</span>
+                <span>{selectedLocation.city}, {selectedLocation.state}</span>
               </div>
             </div>
             
@@ -167,19 +191,19 @@ const TravelSearch = () => {
   return (
     <div className="space-y-8">
       <div className="bg-card shadow-sm rounded-lg p-6">
-        <h2 className="text-xl font-semibold mb-4">Find Tourist Locations</h2>
+        <h2 className="text-xl font-semibold mb-4">Find Indian Tourist Destinations</h2>
         
         <form onSubmit={handleSearch} className="space-y-4">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div>
-              <label htmlFor="country" className="block text-sm font-medium mb-1">
-                Country
+              <label htmlFor="state" className="block text-sm font-medium mb-1">
+                State
               </label>
               <Input
-                id="country"
-                name="country"
-                placeholder="Enter country"
-                value={searchValues.country}
+                id="state"
+                name="state"
+                placeholder="Enter state"
+                value={searchValues.state}
                 onChange={handleInputChange}
               />
             </div>
@@ -254,7 +278,7 @@ const TravelSearch = () => {
                     <h3 className="text-lg font-semibold mb-1">{location.name}</h3>
                     <div className="flex items-center text-muted-foreground">
                       <MapPin className="h-4 w-4 mr-1" />
-                      <span className="text-sm">{location.city}, {location.country}</span>
+                      <span className="text-sm">{location.city}, {location.state}</span>
                     </div>
                   </CardContent>
                 </Card>

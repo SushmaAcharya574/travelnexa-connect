@@ -39,24 +39,24 @@ const Index = () => {
             <h1 className="text-5xl font-bold text-primary">TravelNexa</h1>
           </div>
           
-          <h2 className="text-4xl font-bold leading-tight">Discover Your Perfect <span className="text-secondary">Adventure</span></h2>
+          <h2 className="text-4xl font-bold leading-tight">Discover the Magic of <span className="text-secondary">India</span></h2>
           <p className="text-lg text-foreground bg-[#e6eef5]/80 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-accent/20">
-            Your all-in-one travel companion for discovering new places, connecting with travelers, 
-            and creating unforgettable experiences around the globe.
+            Your all-in-one travel companion for exploring India's rich heritage, diverse cultures, 
+            magnificent landscapes, and creating unforgettable experiences across the subcontinent.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
             <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-primary/20 hover:shadow-lg transition-all">
               <Globe className="h-5 w-5 text-primary" />
-              <span className="font-medium text-foreground">Smart Recommendations</span>
+              <span className="font-medium text-foreground">Cultural Experiences</span>
             </div>
             <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-secondary/20 hover:shadow-lg transition-all">
               <MapPin className="h-5 w-5 text-secondary" />
-              <span className="font-medium text-foreground">Location Insights</span>
+              <span className="font-medium text-foreground">Heritage Sites</span>
             </div>
             <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-accent/20 hover:shadow-lg transition-all">
               <Users className="h-5 w-5 text-primary" />
-              <span className="font-medium text-foreground">Travel Community</span>
+              <span className="font-medium text-foreground">Local Guides</span>
             </div>
           </div>
           
@@ -66,7 +66,7 @@ const Index = () => {
             </Button>
             <Button className="bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all">
               <Sparkles className="h-4 w-4 mr-1" />
-              Explore Now
+              Explore India
             </Button>
           </div>
         </div>
@@ -90,7 +90,7 @@ const Index = () => {
             <div className="h-2 w-2 rounded-full bg-secondary"></div>
             <div className="h-2 w-2 rounded-full bg-accent"></div>
           </div>
-          &copy; {new Date().getFullYear()} TravelNexa. All rights reserved.
+          &copy; {new Date().getFullYear()} TravelNexa India. All rights reserved.
         </div>
       </footer>
     </div>
