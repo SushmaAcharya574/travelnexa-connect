@@ -28,43 +28,43 @@ const Index = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col bg-[#f0f4f8] map-pattern animate-fade-in">
+    <div className="min-h-screen flex flex-col bg-palette-prussian map-pattern animate-fade-in">
       <div className="max-w-7xl mx-auto w-full px-4 py-10 flex-1 flex flex-col md:flex-row items-center justify-center gap-12">
         {/* Left side: Branding */}
         <div className="md:w-1/2 space-y-8 text-center md:text-left">
           <div className="flex items-center justify-center md:justify-start space-x-3">
-            <div className="bg-primary p-3 rounded-full text-white shadow-lg">
+            <div className="bg-palette-teal p-3 rounded-full text-white shadow-lg">
               <Plane className="h-8 w-8" />
             </div>
-            <h1 className="text-5xl font-bold text-primary">TravelNexa</h1>
+            <h1 className="text-5xl font-bold text-palette-amber">TravelNexa</h1>
           </div>
           
-          <h2 className="text-4xl font-bold leading-tight">Discover the Magic of <span className="text-secondary">India</span></h2>
-          <p className="text-lg text-foreground bg-[#e6eef5]/80 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-accent/20">
+          <h2 className="text-4xl font-bold leading-tight text-white">Discover the Magic of <span className="text-palette-amber">India</span></h2>
+          <p className="text-lg text-white bg-palette-cerulean/90 backdrop-blur-sm p-4 rounded-lg shadow-sm border border-palette-teal/20">
             Your all-in-one travel companion for exploring India's rich heritage, diverse cultures, 
             magnificent landscapes, and creating unforgettable experiences across the subcontinent.
           </p>
           
           <div className="flex flex-wrap gap-4 justify-center md:justify-start">
-            <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-primary/20 hover:shadow-lg transition-all">
-              <Globe className="h-5 w-5 text-primary" />
-              <span className="font-medium text-foreground">Cultural Experiences</span>
+            <div className="flex items-center space-x-2 bg-palette-cerulean rounded-full px-4 py-2 shadow-md border border-palette-teal/20 hover:shadow-lg transition-all">
+              <Globe className="h-5 w-5 text-palette-amber" />
+              <span className="font-medium text-white">Cultural Experiences</span>
             </div>
-            <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-secondary/20 hover:shadow-lg transition-all">
-              <MapPin className="h-5 w-5 text-secondary" />
-              <span className="font-medium text-foreground">Heritage Sites</span>
+            <div className="flex items-center space-x-2 bg-palette-cerulean rounded-full px-4 py-2 shadow-md border border-palette-amber/20 hover:shadow-lg transition-all">
+              <MapPin className="h-5 w-5 text-palette-amber" />
+              <span className="font-medium text-white">Heritage Sites</span>
             </div>
-            <div className="flex items-center space-x-2 bg-[#e6eef5] rounded-full px-4 py-2 shadow-md border border-accent/20 hover:shadow-lg transition-all">
-              <Users className="h-5 w-5 text-primary" />
-              <span className="font-medium text-foreground">Local Guides</span>
+            <div className="flex items-center space-x-2 bg-palette-cerulean rounded-full px-4 py-2 shadow-md border border-palette-teal/20 hover:shadow-lg transition-all">
+              <Users className="h-5 w-5 text-palette-amber" />
+              <span className="font-medium text-white">Local Guides</span>
             </div>
           </div>
           
           <div className="flex gap-4 justify-center md:justify-start pt-4">
-            <Button variant="outline" onClick={goToAdmin} className="bg-[#e6eef5] shadow-md hover:shadow-lg transition-all border-primary/20 hover:border-primary/40">
+            <Button variant="outline" onClick={goToAdmin} className="bg-palette-cerulean shadow-md hover:shadow-lg transition-all border-palette-teal/20 hover:border-palette-teal/40 text-white">
               Admin Dashboard
             </Button>
-            <Button className="bg-primary hover:bg-primary/90 shadow-md hover:shadow-lg transition-all">
+            <Button className="bg-palette-amber hover:bg-palette-amber/90 shadow-md hover:shadow-lg transition-all text-palette-prussian">
               <Sparkles className="h-4 w-4 mr-1" />
               Explore India
             </Button>
@@ -73,7 +73,7 @@ const Index = () => {
       
         {/* Right side: Auth form */}
         <div className="md:w-5/12 w-full">
-          <div className="bg-[#e6eef5]/90 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-primary/10">
+          <div className="bg-palette-cerulean/90 backdrop-blur-sm p-8 rounded-xl shadow-xl border border-palette-teal/10">
             {showRegister ? (
               <RegisterForm onToggleForm={toggleForm} />
             ) : (
@@ -83,12 +83,12 @@ const Index = () => {
         </div>
       </div>
       
-      <footer className="bg-[#e6eef5]/50 backdrop-blur-sm py-6 border-t border-primary/10">
-        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-muted-foreground">
+      <footer className="bg-palette-prussian/80 backdrop-blur-sm py-6 border-t border-palette-teal/10">
+        <div className="max-w-7xl mx-auto px-4 text-center text-sm text-palette-amber">
           <div className="flex justify-center gap-4 mb-3">
-            <div className="h-2 w-2 rounded-full bg-primary"></div>
-            <div className="h-2 w-2 rounded-full bg-secondary"></div>
-            <div className="h-2 w-2 rounded-full bg-accent"></div>
+            <div className="h-2 w-2 rounded-full bg-palette-teal"></div>
+            <div className="h-2 w-2 rounded-full bg-palette-amber"></div>
+            <div className="h-2 w-2 rounded-full bg-palette-crimson"></div>
           </div>
           &copy; {new Date().getFullYear()} TravelNexa India. All rights reserved.
         </div>
