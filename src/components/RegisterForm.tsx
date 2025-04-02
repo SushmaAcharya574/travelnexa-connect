@@ -74,8 +74,8 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
   return (
     <div className="w-full max-w-md mx-auto space-y-6 bg-white p-8 rounded-xl shadow-md">
       <div className="text-center space-y-2">
-        <h1 className="text-2xl font-bold">Join TravelNexa</h1>
-        <p className="text-muted-foreground">Create your account to start exploring</p>
+        <h1 className="text-2xl font-bold text-palette-prussian">Join TravelNexa</h1>
+        <p className="text-palette-cerulean">Create your account to start exploring</p>
       </div>
 
       <Form {...form}>
@@ -86,11 +86,11 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
               name="firstName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>First Name</FormLabel>
+                  <FormLabel className="text-palette-prussian">First Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="John" {...field} />
+                    <Input placeholder="John" {...field} className="text-palette-prussian" />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-palette-crimson" />
                 </FormItem>
               )}
             />
@@ -100,11 +100,11 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
               name="lastName"
               render={({ field }) => (
                 <FormItem>
-                  <FormLabel>Last Name</FormLabel>
+                  <FormLabel className="text-palette-prussian">Last Name</FormLabel>
                   <FormControl>
-                    <Input placeholder="Doe" {...field} />
+                    <Input placeholder="Doe" {...field} className="text-palette-prussian" />
                   </FormControl>
-                  <FormMessage />
+                  <FormMessage className="text-palette-crimson" />
                 </FormItem>
               )}
             />
@@ -115,11 +115,11 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
             name="username"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Username</FormLabel>
+                <FormLabel className="text-palette-prussian">Username</FormLabel>
                 <FormControl>
-                  <Input placeholder="johndoe" {...field} />
+                  <Input placeholder="johndoe" {...field} className="text-palette-prussian" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-palette-crimson" />
               </FormItem>
             )}
           />
@@ -129,11 +129,11 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email</FormLabel>
+                <FormLabel className="text-palette-prussian">Email</FormLabel>
                 <FormControl>
-                  <Input placeholder="your@email.com" {...field} />
+                  <Input placeholder="your@email.com" {...field} className="text-palette-prussian" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-palette-crimson" />
               </FormItem>
             )}
           />
@@ -143,11 +143,11 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
             name="password"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Password</FormLabel>
+                <FormLabel className="text-palette-prussian">Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="******" {...field} />
+                  <Input type="password" placeholder="******" {...field} className="text-palette-prussian" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-palette-crimson" />
               </FormItem>
             )}
           />
@@ -157,23 +157,23 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
             name="confirmPassword"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Confirm Password</FormLabel>
+                <FormLabel className="text-palette-prussian">Confirm Password</FormLabel>
                 <FormControl>
-                  <Input type="password" placeholder="******" {...field} />
+                  <Input type="password" placeholder="******" {...field} className="text-palette-prussian" />
                 </FormControl>
-                <FormMessage />
+                <FormMessage className="text-palette-crimson" />
               </FormItem>
             )}
           />
 
           <FormItem>
-            <FormLabel>Current Location</FormLabel>
+            <FormLabel className="text-palette-prussian">Current Location</FormLabel>
             <LocationDetector onLocationChange={setLocation} />
           </FormItem>
 
           <Button 
             type="submit" 
-            className="w-full" 
+            className="w-full bg-palette-teal hover:bg-palette-teal/90 text-white" 
             disabled={isSubmitting || isLoading}
           >
             {isSubmitting || isLoading ? (
@@ -192,8 +192,8 @@ export default function RegisterForm({ onToggleForm }: { onToggleForm: () => voi
       </Form>
 
       <div className="text-center text-sm">
-        <span className="text-muted-foreground">Already have an account? </span>
-        <Button variant="link" className="p-0" onClick={onToggleForm}>
+        <span className="text-palette-cerulean">Already have an account? </span>
+        <Button variant="link" className="p-0 text-palette-amber" onClick={onToggleForm}>
           Login here
         </Button>
       </div>
